@@ -18,7 +18,9 @@
         navigator.serviceWorker.register('sw.js')
             .then(function(registartion){
                 console.log('支持sw:',registartion.scope)
-            })
+            }).catch(function(err) {
+            console.log('不支持sw:',err)
+        })
     }
 </script>
 </html>
