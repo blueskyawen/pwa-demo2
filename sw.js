@@ -2,22 +2,22 @@
  * Created by liuxuwen on 19-2-17.
  */
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox-sw.js");
-var cacheStorageKey = 'minimal-pwa-1'
+var cacheStorageKey = 'pwa-demo2'
 var cacheList=[
     '/',
     'index.html',
     'main.css',
     'tubiao.jpg'
-]
-self.addEventListener('install',e =>{
+];
+self.addEventListener('install',function(e) {
     e.waitUntil(
     caches.open(cacheStorageKey)
-        .then(cache => cache.addAll(cacheList))
-    .then(() => self.skipWaiting())
-)
+        .then(function(cache) {cache.addAll(cacheList);})
+    .then(function() {self.skipWaiting();})
+    )
 });
 
-self.addEventListener('fetch',function(e){
+self.addEventListener('fetch',function(e) {
     e.respondWith(
         caches.match(e.request).then(function(response){
             if(response != null){
@@ -31,17 +31,17 @@ self.addEventListener('fetch',function(e){
 self.addEventListener('activate',function(e){
     e.waitUntil(
         //获取所有cache名称
-        caches.keys().then(cacheNames => {
+        caches.keys().then(function(cacheNames) {
             return Promise.all(
                 // 获取所有不同于当前版本名称cache下的内容
-                cacheNames.filter(cacheNames => {
-                    return cacheNames !== cacheStorageKey
-                }).map(cacheNames => {
-                return caches.delete(cacheNames)
+                cacheNames.filter(function(cacheNames) {
+                    return cacheNames !== cacheStorageKey;
+                }).map(function(cacheNames) {
+                return caches.delete(cacheNames);
             })
-    )
-}).then(() => {
-        return self.clients.claim()
-    })
+        )
+    }).then(function() {
+            return self.clients.claim();
+        })
     )
 });
