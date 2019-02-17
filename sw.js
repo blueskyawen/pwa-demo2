@@ -2,7 +2,7 @@
  * Created by liuxuwen on 19-2-17.
  */
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox-sw.js");
-var cacheStorageKey = 'pwa-demo2'
+var cacheStorageKey = 'pwa-demo2-v2';
 var cacheList=[
     '/',
     'index.html',
