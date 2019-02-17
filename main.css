@@ -1,3 +1,8 @@
-h3{
+h3 {
     color: #f00;
+}
+
+img.Imge {
+    height: 120px;
+    width: 160px;
 }

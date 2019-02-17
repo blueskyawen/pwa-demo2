@@ -7,7 +7,8 @@ var cacheList=[
     '/',
     'index.html',
     'main.css',
-    'tubiao.jpg'
+    'tubiao.jpg',
+    'xiaolongxia.jpg'
 ];
 self.addEventListener('install',function(e) {
     e.waitUntil(

@@ -6,17 +6,23 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="main.css">
     <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="tubiao.jpg" type="image/png" />
 </head>
 <body>
 <h3>Hello PWA</h3>
+<img class="Imge" src="xiaolongxia.jpg" alt="">
 </body>
 <script>
     // 检测浏览器是否支持SW
     if(navigator.serviceWorker != null){
-        navigator.serviceWorker.register('sw.js')
-            .then(function(registartion){
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('sw.js').then(function(registration) {
                 console.log('支持sw:',registartion.scope)
-            })
+            }).catch(function(err) {
+                console.log('不支持sw:',err)
+            });
+        });
     }
+
 </script>
 </html>
