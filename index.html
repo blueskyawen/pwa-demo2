@@ -18,7 +18,7 @@
         window.addEventListener('load', function() {
             navigator.serviceWorker.register('sw.js').then(function(registration) {
                 console.log('支持sw:',registartion.scope)
-            }).catch(function(err) {
+            },function(err) {
                 console.log('不支持sw:',err)
             });
         });
